@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: quadscalp-db
+    environment:
+      POSTGRES_DB: quadscalp
+      POSTGRES_USER: quadscalp
+      POSTGRES_PASSWORD: quadscalp2026
+    ports:
+      - "5433:5432"
+    volumes:
+      - quadscalp_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  quadscalp_data:
